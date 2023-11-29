@@ -13,13 +13,13 @@ export function Services() {
     },
     {
       img: "./images/car.png",
-      desc: "Montaż i demontaż różnych urządzeń AGD i RTV.",
+      desc: "Brawurowa jazda samochodem Cinquecento",
       icoHref: hrefForIcon,
       icoAut: "Icon by by Aprelliyanto",
     },
     {
       img: "./images/cctv.png",
-      desc: "Montaż i wyrzuca różnych urządzeń AGD i RTV.",
+      desc: "Kamery. Produkcja, dystrybucja, akrobacja.",
       icoHref: hrefForIcon,
       icoAut: "Icon Icon by Aprelliyanto",
     },
