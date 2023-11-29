@@ -4,6 +4,7 @@ import { Button } from "./components/Button";
 import { AboutUs } from "./components/AboutUs";
 import { ContactSection } from "./components/ContactSection";
 import { Services } from "./components/Services";
+import { Other } from "./components/Other";
 
 function App() {
   const [activeSection, setActiveSection] = useState(null);
@@ -15,6 +16,7 @@ function App() {
   return (
     <>
       <div className={styles.container}>
+        <img src="./images/logo_transparent.png" alt="" />
         <h1 className={styles.heading}>Moja firma</h1>
         <div>
           <Button
@@ -38,12 +40,20 @@ function App() {
           >
             O nas
           </Button>
+          <Button
+            onClick={() => {
+              setActiveSection(4);
+            }}
+          >
+            Inne
+          </Button>
         </div>
         {activeSection === 1 && <Services />}
         {activeSection === 2 && <ContactSection />}
         {activeSection === 3 && (
           <AboutUs numberOfTrust={numberOfTrust} trustClick={trustClick} />
         )}
+        {activeSection === 4 && <Other />}
       </div>
     </>
   );

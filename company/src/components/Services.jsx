@@ -1,33 +1,32 @@
 import { ServiceOffer } from "./ServiceOffer";
 import styles from "./Services.module.css";
+const hrefForIcon =
+  "https://www.freepik.com/search?format=search&last_filter=query&last_value=tools+icons&query=tools+icons&type=icon";
 
 export function Services() {
   const servicesObj = [
     {
       img: "./images/tools.png",
       desc: "Montaż i demontaż różnych urządzeń AGD i RTV.",
-      icoHref:
-        "https://www.freepik.com/search?format=search&last_filter=query&last_value=tools+icons&query=tools+icons&type=icon",
+      icoHref: hrefForIcon,
       icoAut: "Icon by Yogi Aprelliyanto",
     },
     {
       img: "./images/car.png",
       desc: "Montaż i demontaż różnych urządzeń AGD i RTV.",
-      icoHref:
-        "https://freepik.freepik.com/search?format=search&last_filter=query&last_value=tools+icons&query=tools+icons&type=icon",
+      icoHref: hrefForIcon,
       icoAut: "Icon by by Aprelliyanto",
     },
     {
       img: "./images/cctv.png",
       desc: "Montaż i wyrzuca różnych urządzeń AGD i RTV.",
-      icoHref:
-        "https://www.freepik.com/search?format=search&last_filter=query&last_value=tools+icons&query=tools+icons&type=icon",
+      icoHref: hrefForIcon,
       icoAut: "Icon Icon by Aprelliyanto",
     },
   ];
   return (
     <>
-      <h2>Przejrzyj naszą ofertę</h2>
+      <h2 className={styles.services_hedding}>Przejrzyj naszą ofertę</h2>
 
       {servicesObj.map((el) => (
         <div className={styles.services} key={el.img}>
