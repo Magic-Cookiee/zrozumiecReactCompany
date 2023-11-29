@@ -16,7 +16,13 @@ function App() {
   return (
     <>
       <div className={styles.container}>
-        <img src="./images/logo_transparent.png" alt="" />
+        <img
+          onClick={() => {
+            setActiveSection(0);
+          }}
+          src="./images/logo_transparent.png"
+          alt=""
+        />
         <h1 className={styles.heading}>Moja firma</h1>
         <div>
           <Button

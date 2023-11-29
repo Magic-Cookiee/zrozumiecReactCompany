@@ -23,8 +23,11 @@ export function Other() {
         losowego pieska.
       </span>
       <Button onClick={getRandomDogImg}>Pokaż pieska</Button>
-      {isLoading && <p>{loadingMessege}</p>}
-      {dogImg && <img src={dogImg} alt="losowe zdjęcie pieska" />}
+      {isLoading ? (
+        <p>{loadingMessege}</p>
+      ) : (
+        <img src={dogImg} alt="losowe zdjęcie pieska" />
+      )}
     </>
   );
 }
