@@ -12,7 +12,7 @@ export function Other() {
   return (
     <>
       <span className={styles.description}>
-        My kochamy pieski. Kliknij w przycisk poniżej, aby pobrać zdjęcie
+        My kochamy pieski! Kliknij w przycisk poniżej, aby pobrać zdjęcie
         losowego pieska.
       </span>
       <Button onClick={getRandomDogImg}>Pokaż pieska</Button>
