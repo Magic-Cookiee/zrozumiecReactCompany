@@ -4,10 +4,17 @@ import styles from "./Other.module.css";
 
 export function Other() {
   const [dogImg, setDogImg] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
+  const [loadingMessege, setLoadingMessege] = useState();
   function getRandomDogImg() {
+    setLoadingMessege("Ładowanie");
+    setIsLoading(true);
     fetch("https://random.dog/woof.json")
       .then((res) => res.json())
-      .then((res) => setDogImg(res.url));
+      .then((res) => {
+        setDogImg(res.url);
+        setIsLoading(false);
+      });
   }
   return (
     <>
@@ -16,6 +23,7 @@ export function Other() {
         losowego pieska.
       </span>
       <Button onClick={getRandomDogImg}>Pokaż pieska</Button>
+      {isLoading && <p>{loadingMessege}</p>}
       {dogImg && <img src={dogImg} alt="losowe zdjęcie pieska" />}
     </>
   );
