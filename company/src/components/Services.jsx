@@ -1,34 +1,45 @@
 import { ServiceOffer } from "./ServiceOffer";
+import styles from "./Services.module.css";
+
 export function Services() {
+  const servicesObj = [
+    {
+      img: "./images/tools.png",
+      desc: "Montaż i demontaż różnych urządzeń AGD i RTV.",
+      icoHref:
+        "https://www.freepik.com/search?format=search&last_filter=query&last_value=tools+icons&query=tools+icons&type=icon",
+      icoAut: "Icon by Yogi Aprelliyanto",
+    },
+    {
+      img: "./images/car.png",
+      desc: "Montaż i demontaż różnych urządzeń AGD i RTV.",
+      icoHref:
+        "https://freepik.freepik.com/search?format=search&last_filter=query&last_value=tools+icons&query=tools+icons&type=icon",
+      icoAut: "Icon by by Aprelliyanto",
+    },
+    {
+      img: "./images/cctv.png",
+      desc: "Montaż i wyrzuca różnych urządzeń AGD i RTV.",
+      icoHref:
+        "https://www.freepik.com/search?format=search&last_filter=query&last_value=tools+icons&query=tools+icons&type=icon",
+      icoAut: "Icon Icon by Aprelliyanto",
+    },
+  ];
   return (
     <>
       <h2>Przejrzyj naszą ofertę</h2>
-      <ServiceOffer
-        imgSrc={"./images/tools.png"}
-        description={"Montaż i demontaż różnych urządzeń AGD i RTV."}
-        icoAuthorHref={
-          "https://www.freepik.com/search?format=search&last_filter=query&last_value=tools+icons&query=tools+icons&type=icon"
-        }
-        icoAuthorText="Icon by Yogi Aprelliyanto"
-      />
-      <ServiceOffer
-        imgSrc={"./images/car.png"}
-        description={"Brawurowa jazda samochodem Cinquecento"}
-        icoAuthorHref={
-          "https://www.freepik.com/search?format=search&last_filter=query&last_value=steering+wheel&query=steering+wheel&type=icon"
-        }
-        icoAuthorText={"Icon by mynamepong"}
-      />
-      <ServiceOffer
-        imgSrc={"./images/cctv.png"}
-        description={
-          "Sąsiad wyrzuca śmieci na Twoje podwórko, ale nie masz na to dowodów? Zajmiemy się tym. Profesjonalny montaż kamer CCTV. "
-        }
-        icoAuthorHref={
-          "https://www.freepik.com/search?format=search&last_filter=page&last_value=3&page=3&query=camera&type=icon"
-        }
-        icoAuthorText={"Icon by Freepik"}
-      />
+
+      {servicesObj.map((el) => (
+        <div className={styles.services} key={el.img}>
+          <ServiceOffer
+            key={el.img}
+            imgSrc={el.img}
+            description={el.desc}
+            icoAuthorHref={el.icoHref}
+            icoAuthorText={el.icoAut}
+          ></ServiceOffer>
+        </div>
+      ))}
     </>
   );
 }
