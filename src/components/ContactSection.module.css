@@ -23,3 +23,8 @@
   width: 400px;
   border-bottom: 1px solid white;
 }
+
+.emailError {
+  color: rgb(232, 47, 235);
+  margin-bottom: 8px;
+}

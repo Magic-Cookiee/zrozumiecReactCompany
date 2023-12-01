@@ -4,10 +4,21 @@ import styles from "./ContactSection.module.css";
 
 export function ContactSection() {
   const [customerName, setCustomerName] = useState("");
+  const [message, setMessage] = useState("");
   const [showForm, setShowForm] = useState(true);
-  function onSubmit(event) {
+  const [inputError, setInputError] = useState("");
+  const [emailError, setEmailError] = useState("");
+  function formValidation(event) {
     event.preventDefault();
-    setShowForm(false);
+    if (!message || !customerName) {
+      setInputError("Pole nie może być puste");
+    } else if (!customerName.includes("@") || !customerName.includes(".")) {
+      setEmailError("Sprawdź adres email");
+    } else {
+      setShowForm(false);
+      setInputError("");
+      setEmailError("");
+    }
   }
 
   return (
@@ -19,26 +30,28 @@ export function ContactSection() {
           </span>
           <label htmlFor="email">Twój adres e-mail</label>
           <input
+            placeholder={inputError}
             onChange={(event) => setCustomerName(event.target.value)}
             className={styles.inputStyles}
+            required
             type="email"
             id="email"
             name="email"
             value={customerName}
           ></input>
+          {emailError && <p className={styles.emailError}>{emailError}</p>}
           <label htmlFor="text">Twoja wiadomość</label>
           <textarea
+            placeholder={inputError}
+            onChange={(event) => setMessage(event.target.value)}
+            value={message}
             className={styles.inputStyles}
             type="text"
             id="text"
             name="text"
             style={{ height: "140px" }}
           ></textarea>
-          <Button
-            type="submit"
-            disabled={customerName === ""}
-            onClick={onSubmit}
-          >
+          <Button type="submit" onClick={formValidation}>
             Wyślij wiadomość
           </Button>
         </form>
@@ -54,6 +67,7 @@ export function ContactSection() {
             onClick={() => {
               setShowForm(true);
               setCustomerName("");
+              setMessage("");
             }}
           >
             Wyślij nową wiadomość

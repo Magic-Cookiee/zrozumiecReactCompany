@@ -12,6 +12,13 @@ function App() {
   function trustClick() {
     setNumberOfTrust((prevNumber) => prevNumber + 1);
   }
+  function getView(activeSection) {
+    if (activeSection === "Services") return <Services />;
+    if (activeSection === "ContactSection") return <ContactSection />;
+    if (activeSection === "AboutUs")
+      return <AboutUs numberOfTrust={numberOfTrust} trustClick={trustClick} />;
+    if (activeSection === "Other") return <Other />;
+  }
 
   return (
     <>
@@ -25,41 +32,14 @@ function App() {
         />
         <h1 className={styles.heading}>Moja firma</h1>
         <div>
-          <Button
-            onClick={() => {
-              setActiveSection(1);
-            }}
-          >
-            Oferta
-          </Button>
-          <Button
-            onClick={() => {
-              setActiveSection(2);
-            }}
-          >
+          <Button onClick={() => setActiveSection("Services")}>Oferta</Button>
+          <Button onClick={() => setActiveSection("ContactSection")}>
             Skontaktuj się z nami
           </Button>
-          <Button
-            onClick={() => {
-              setActiveSection(3);
-            }}
-          >
-            O nas
-          </Button>
-          <Button
-            onClick={() => {
-              setActiveSection(4);
-            }}
-          >
-            Inne
-          </Button>
+          <Button onClick={() => setActiveSection("AboutUs")}>O nas</Button>
+          <Button onClick={() => setActiveSection("Other")}>Inne</Button>
         </div>
-        {activeSection === 1 && <Services />}
-        {activeSection === 2 && <ContactSection />}
-        {activeSection === 3 && (
-          <AboutUs numberOfTrust={numberOfTrust} trustClick={trustClick} />
-        )}
-        {activeSection === 4 && <Other />}
+        {getView(activeSection)}
       </div>
     </>
   );
