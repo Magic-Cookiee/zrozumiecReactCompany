@@ -5,11 +5,10 @@ import { AboutUs } from "./components/AboutUs/AboutUs";
 import { ContactSection } from "./components/ContactSection/ContactSection";
 import { Services } from "./components/Services/Services";
 import { Other } from "./components/Other/Other";
-import { Admin } from "./components/Admin/Admin";
 
 function App() {
-  const [activeSection, setActiveSection] = useState(null);
   const [numberOfTrust, setNumberOfTrust] = useState(2136);
+  const [activeSection, setActiveSection] = useState(null);
 
   function trustClick() {
     setNumberOfTrust((prevNumber) => prevNumber + 1);
@@ -20,7 +19,6 @@ function App() {
     if (activeSection === "AboutUs")
       return <AboutUs numberOfTrust={numberOfTrust} trustClick={trustClick} />;
     if (activeSection === "Other") return <Other />;
-    if (activeSection === "Admin") return <Admin />;
   }
 
   return (
@@ -28,7 +26,7 @@ function App() {
       <div className={styles.container}>
         <img
           onClick={() => {
-            setActiveSection(0);
+            setActiveSection("home");
           }}
           src="./images/logo_transparent.png"
           alt=""
@@ -44,13 +42,6 @@ function App() {
         </div>
         {getView(activeSection)}
       </div>
-      <span
-        className={styles.span_admin}
-        role="button"
-        onClick={() => setActiveSection("Admin")}
-      >
-        Admin panel
-      </span>
     </>
   );
 }
