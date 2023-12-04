@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { Button } from "./Button";
+
 import styles from "./ServiceOffer.module.css";
+import { Button } from "../../Button/Button";
 export function ServiceOffer({
   imgSrc,
   description,

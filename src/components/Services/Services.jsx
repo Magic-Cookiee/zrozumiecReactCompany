@@ -1,4 +1,4 @@
-import { ServiceOffer } from "./ServiceOffer";
+import { ServiceOffer } from "./ServiceOffer/ServiceOffer";
 import styles from "./Services.module.css";
 const hrefForIcon =
   "https://www.freepik.com/search?format=search&last_filter=query&last_value=tools+icons&query=tools+icons&type=icon";

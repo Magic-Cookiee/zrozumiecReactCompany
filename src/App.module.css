@@ -38,3 +38,8 @@ body {
   border-radius: 4px;
   box-shadow: 8px 8px 68px -1px rgba(82, 82, 82, 1);
 }
+.span_admin {
+  color: white;
+  float: right;
+  cursor: pointer;
+}

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Button } from "./Button";
+import { Button } from "../Button/Button";
 import styles from "./AboutUs.module.css";
 
 export function AboutUs({ numberOfTrust, trustClick }) {
