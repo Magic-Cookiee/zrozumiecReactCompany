@@ -13,6 +13,7 @@ export function Form({
 }) {
   const [inputError, setInputError] = useState("");
   const [emailError, setEmailError] = useState("");
+
   const validateEmail = (email) => {
     return Boolean(
       email
@@ -24,7 +25,6 @@ export function Form({
   };
   function onFormSubmit(event) {
     event.preventDefault();
-
     if (!message || !userEmail) {
       setInputError("Pole nie może być puste");
     } else if (!validateEmail(userEmail)) {

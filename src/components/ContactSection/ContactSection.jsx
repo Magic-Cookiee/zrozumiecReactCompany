@@ -1,14 +1,15 @@
-import { useState } from "react";
-import { Button } from "../Button/Button";
+import { useState, useContext } from "react";
 import { Form } from "./Form";
 import { ThankYouMessage } from "./ThankYouMessage";
-import { RenderQuestions } from "./RenderQuestions";
+import { RenderQuestionsContext } from "../../context/RenderQuestionsContext";
+
 export function ContactSection() {
   const [showForm, setShowForm] = useState(true);
-  const [renderQuestions, setRenderQuestions] = useState(true);
+
   const [message, setMessage] = useState("");
   const [userEmail, setUserEmail] = useState("");
-  const [userQuestion, setUserQuestion] = useState([]);
+  const [userQuestion, setUserQuestion] = useContext(RenderQuestionsContext);
+
   return (
     <>
       {showForm && (
@@ -30,15 +31,8 @@ export function ContactSection() {
             setUserEmail={setUserEmail}
             setMessage={setMessage}
           />
-          <Button
-            onClick={() => setRenderQuestions((prevBloean) => !prevBloean)}
-          >
-            {renderQuestions ? "Zobacz pytania" : "Ukryj pytania"}
-          </Button>
         </>
       )}
-
-      {!renderQuestions && <RenderQuestions userQuestion={userQuestion} />}
     </>
   );
 }
